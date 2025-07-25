@@ -1,0 +1,10 @@
+Package: phscervscreen
+Title: Public Health Scotland cervical screening analysis help
+Version: 0.0.0.9000
+Authors@R: 
+    person("Adult", "Screening", , "phs.adultscreening@phs.scot", role = c("aut", "cre"))
+Description: Functions and unit tests to make cervical screening analysis more reproducible and robust.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
