@@ -13,7 +13,11 @@ These functions are made available in a package to build more robust
 quality assurance into the code, and reducing the chance of errors when
 running scripts.
 
-Currently, there are 1 functions exported: - cerv_get_pct()
+Currently, there are 1 functions exported:
+
+- cerv_get_pct()
+
+<br>
 
 ***`cerv_get_pct()`***
 
