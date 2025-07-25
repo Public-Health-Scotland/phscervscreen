@@ -127,6 +127,10 @@ test_that("When scotland is true hb2019 is the first grouping in ...", {
     simd = c(1, 4, 5)
   )
 
+  hb_levels <- c("S08000015", "S08000016", "S08000017", "S08000029", "S08000019",
+  "S08000020", "S08000031", "S08000022", "S08000032", "S08000024",
+  "S08000025", "S08000026", "S08000030", "S08000028", "S92000003")
+
   expect_identical(
     as.vector(cerv_get_pct(df1, (reported_fy == 1),
                            reported_14, reported_fy,
