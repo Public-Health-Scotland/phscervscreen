@@ -1,3 +1,58 @@
+#' Get percentage from a (cervical screening) data frame
+#'
+#' @param df A data frame with following columns:
+#' two logical columns used for denominator and numerator,
+#' health board column (hb2019 format),
+#' and if calculating coverage prior to financial year 2025/26 an 'age' and 'scr3_5' column
+#' @param filter_expr An expression used to filter the data frame
+#' @param numerator The column name within the data frame for the numerator column
+#' @param denominator The column name within the data frame for the denominator column
+#' @param ... Any column name(s) within data frame to use for grouping data
+#' @param fct_levels A vector of factor levels for health boards (hb2019 format)
+#' @param fy_yr_start An integer for the current financial year start year
+#' @param scotland A boolean, if calculating Scotland totals or not
+#' @param calc_coverage A boolean, if calculating coverage percentage or not
+#' @param all_scr5_5_start_yr An integer for the financial year start year where all
+#' coverage percentage are calculated across 5.5 year look back period
+#'
+#' @return A data frame
+#' @export
+#'
+#' @examples
+#' hb_levels <- c("S08000015", "S08000016", "S08000017", "S08000029", "S08000019",
+#' "S08000020", "S08000031", "S08000022", "S08000032", "S08000024",
+#' "S08000025", "S08000026", "S08000030", "S08000028", "S92000003")
+#' data <- data.frame(
+#'   reported_fy = c(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+#'   reported_14 = c(0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1),
+#'   hb2019 = c("S08000024", "S08000022", "S08000024", "S08000030", "S08000031",
+#'              "S08000032", "S08000031", "S08000024", "S08000031", "S08000029",
+#'              "S08000029", "S08000030", "S08000030", "S08000031", "S08000026",
+#'              "S08000024", "S08000031", "S08000024", "S08000026", "S08000015")
+#' )
+#' cerv_get_pct(data, (reported_fy == 1),
+#'              reported_14, reported_fy,
+#'              hb2019,
+#'              fct_levels = hb_levels, fy_yr_start = 2023)
+#'
+#' # A tibble: 15 × 4
+#' #    hb2019    Denominator Numerator Percentage
+#' #    <fct>           <dbl>     <dbl>      <dbl>
+#' #  1 S08000015           1         1      100
+#' #  2 S08000016          NA        NA       NA
+#' #  3 S08000017          NA        NA       NA
+#' #  4 S08000029           2         2      100
+#' #  5 S08000019          NA        NA       NA
+#' #  6 S08000020          NA        NA       NA
+#' #  7 S08000031           5         4       80
+#' #  8 S08000022           1         0        0
+#' #  9 S08000032           1         1      100
+#' # 10 S08000024           5         3       60
+#' # 11 S08000025          NA        NA       NA
+#' # 12 S08000026           2         1       50
+#' # 13 S08000030           3         2       66.7
+#' # 14 S08000028          NA        NA       NA
+#' # 15 S92000003          20        14       70
 
 cerv_get_pct <- function(df, filter_expr,
                          numerator, denominator, ...,
