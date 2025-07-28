@@ -11,7 +11,7 @@ create_palette(colour)
 }
 \value{
 A vector with HEX code colours for a graph.
-These colours are created by PHS to be accessible when used in this order.
+The colour palette generated is created by PHS to be accessible when used in the order provided.
 }
 \description{
 Create a palette of colours for a graph

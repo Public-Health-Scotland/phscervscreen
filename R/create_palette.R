@@ -3,7 +3,7 @@
 #' @param colour A vector containing the graph objects which require different colours
 #'
 #' @return A vector with HEX code colours for a graph.
-#' These colours are created by PHS to be accessible when used in this order.
+#' The colour palette generated is created by PHS to be accessible when used in the order provided.
 #' @export
 #'
 #' @examples

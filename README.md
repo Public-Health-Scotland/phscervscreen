@@ -16,6 +16,7 @@ running scripts.
 Currently, there are 1 functions exported:
 
 - cerv_get_pct()
+- create_palette()
 
 <br>
 
@@ -27,7 +28,13 @@ age grouping can be used to calculate the combined coverage for those,
 i.e. for look-bakc periods of 3.5- and 5.5-years. See the Help pages of
 the functions for more details.
 
-## Installation
+***`create_palette()`***
+
+This function creates a vector with HEX code colours to use with graphs.
+The colour palette generated is created by PHS to be accessible when
+used in the order provided.
+
+### Installation
 
 You can install the development version of phscervscreen from
 [GitHub](https://github.com/) with:
